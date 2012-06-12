@@ -14,7 +14,7 @@ class Podio
                              'Content-Length': content.length
                              'Content-Type': 'application/json'
 
-                   options.headers.Authorization = "OAuth2 " + @token if @token?
+                options.headers.Authorization = "OAuth2 " + @token if @token?
                 req = http.request options, (res) =>
                         return on_error_cb() unless res.statusCode == 200
                 res.on "data", (chunk) =>
