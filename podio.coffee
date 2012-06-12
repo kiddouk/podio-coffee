@@ -1,6 +1,6 @@
 
 http = require "https"
-exports.Podio = Podio
+
 
 class Podio
         _send_request: (path, method="GET", content=undefined, on_success_cb, on_error_cb) ->
@@ -40,8 +40,8 @@ class Podio
                 redirect_url = process.env.PODIO_URL
                 path =  "/oauth/token?grant_type=password&username=#{username}&password=#{password}&client_id=#{client_id}&redirect_uri=#{redirect_url}&client_secret=#{client_secret}"
                 auth_success_cb = (data) =>
-                @token = data.access_token
-                callback()
+                        @token = data.access_token
+                        callback()
 
                 @_send_request path, "POST", '', auth_success_cb, =>
                         console.log "Error while authenticating"
@@ -57,3 +57,5 @@ class Podio
                         @_send_request path, "POST", data, success_cb
 
 
+
+exports.Podio = Podio
