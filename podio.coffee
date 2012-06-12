@@ -1,5 +1,6 @@
 
 http = require "https"
+exports.Podio = Podio
 
 class Podio
         _send_request: (path, method="GET", content=undefined, on_success_cb, on_error_cb) ->
