@@ -45,12 +45,14 @@ class Podio
                 @_send_request path, "POST", '', auth_success_cb, =>
                         console.log "Error while authenticating"
 
-        update_item: (item_id, data, success_cb, error_cb) ->
-                path = "/item/#{item_id}"
-                @_send_request path, "PUT", data, success_cb, error_cb
+        update_item: (item_id, data, success_cb, error_cb) =>
+                @authenticate =>
+                        path = "/item/#{item_id}"
+                        @_send_request path, "PUT", data, success_cb, error_cb
 
-        comment: (item_id, data, success_cb, error_cb) ->
-                path = "/comment/item/#{item}"
-                @_send_request path, "POST", data, success_cb
+        comment: (item_id, data, success_cb, error_cb) =>
+                @authenticate =>
+                        path = "/comment/item/#{item}"
+                        @_send_request path, "POST", data, success_cb
 
 
