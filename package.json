@@ -8,5 +8,5 @@
     "type": "git",
     "url": "git@github.com:kiddouk/podio-coffee.git"
   },
-  "main": "./podio",
+  "main": "./podio"
 }
