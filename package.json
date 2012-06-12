@@ -1,6 +1,6 @@
 {
-  "author": "Sebastien Requiem",
-  "name": "podio-coffee,
+  "author": "Sebastien Requiem <sebastien.requiem@gmail.com>",
+  "name": "podio-coffee",
   "description": "a node module to communicate with Podio API",
   "version": "0.0.1",
   "homepage": "https://github.com/kiddouk/podio-coffee",
