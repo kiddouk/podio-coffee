@@ -2,10 +2,6 @@
 http = require "https"
 
 class Podio
-        constructor: (@client_res) ->
-                console.log "Creating PodioBug"
-
-
         _send_request: (path, method="GET", content=undefined, on_success_cb, on_error_cb) ->
                 content = JSON.stringify(content) if typeof(content) != "string"
 
@@ -47,7 +43,7 @@ class Podio
                 callback()
 
                 @_send_request path, "POST", '', auth_success_cb, =>
-                @client_res.end "Error while authenticating"
+                        console.log "Error while authenticating"
 
         update_item: (item_id, data, success_cb, error_cb) ->
                 path = "/item/#{item_id}"
