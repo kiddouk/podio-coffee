@@ -19,10 +19,13 @@ class Podio
                 req = http.request options, (res) =>
                         return on_error_cb() unless res.statusCode == 200
                         res.on "data", (chunk) =>
+                                console.log "Success on #{path}"
                                 data = JSON.parse(chunk)
+                                console.log "Data received: #{data}"
                                 on_success_cb(data)
 
                 req.on "error", (e) =>
+                        console.log "Error on request #{path}"
                         on_error_cb()
 
                 req.write(content) unless method == "GET"
@@ -44,6 +47,7 @@ class Podio
                         path =  "/oauth/token?grant_type=password&username=#{username}&password=#{password}&client_id=#{client_id}&redirect_uri=#{redirect_url}&client_secret=#{client_secret}"
                         auth_success_cb = (data) =>
                                 @token = data.access_token
+                                console.log "Podio Auth OK"
                                 callback()
 
                 @_send_request path, "POST", '', auth_success_cb, =>
