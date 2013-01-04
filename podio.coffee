@@ -61,11 +61,6 @@ class Podio
                         path = "/item/#{item_id}"
                         @_send_request path, "PUT", data, success_cb, error_cb
 
-        update_item: (item_id, success_cb, error_cb) =>
-                @authenticate =>
-                        path = "/item/#{item_id}"
-                        @_send_request path, "GET", success_cb, error_cb
-
         comment: (item_id, data, success_cb, error_cb) =>
                 @authenticate =>
                         path = "/comment/item/#{item_id}"
