@@ -5,7 +5,7 @@ http = require "https"
 class Podio
         _send_request: (path, method="GET", content=undefined, on_success_cb, on_error_cb) ->
                 content = JSON.stringify(content) if typeof(content) != "string"
-
+                console.log "#{method} on #{path}"
                 options =
                         host: if path.match("/oauth") then "podio.com" else "api.podio.com"
                         port: 443
