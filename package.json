@@ -2,7 +2,7 @@
   "author": "Sebastien Requiem <sebastien.requiem@gmail.com>",
   "name": "podio-coffee",
   "description": "a node module to communicate with Podio API",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/kiddouk/podio-coffee",
   "repository": {
     "type": "git",
