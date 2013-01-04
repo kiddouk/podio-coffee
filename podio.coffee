@@ -67,7 +67,7 @@ class Podio
         verify_hook: (item_id, data, success_cb, error_cb) =>
                 @authenticate =>
                         path = "/hook/#{item_id}/verify/validate"
-                        @_send_request path, "POST", data, success_cb
+                        @_send_request path, "POST", data, success_cb, error_cb
 
 
 
