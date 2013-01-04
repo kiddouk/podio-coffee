@@ -17,8 +17,10 @@ class Podio
 
                 options.headers.Authorization = "OAuth2 " + @token if @token?
                 req = http.request options, (res) =>
-                        return on_error_cb() unless res.statusCode == 200
-                        res.on "data", (chunk) =>
+                    if res.statusCode != 200
+                        console.log "Response: #{res}"
+                        return on_error_cb() 
+                    res.on "data", (chunk) =>
                                 console.log "Success on #{path}"
                                 data = JSON.parse(chunk)
                                 console.log "Data received: #{data}"
