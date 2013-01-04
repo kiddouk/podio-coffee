@@ -37,6 +37,7 @@ class Podio
                 Authenticate with Podio
                 ###
                 if @token?
+                        console.log "Already logged in, calling callback"
                         return callback()
                 else
                         username = process.env.PODIO_USERNAME
